@@ -11,10 +11,10 @@ const allRoutes = require("./routes");
 app.use("/api", allRoutes);
 
 const projectRouter = require("./routes/project.routes");
-app.use("/api", projectRouter);
+app.use("/api", isAuthenticated, projectRouter);
 
 const taskRouter = require("./routes/task.routes");
-app.use("/api", taskRouter);
+app.use("/api", isAuthenticated, taskRouter);
 
 const authRouter = require("./routes/auth.routes");
 app.use("/auth", authRouter);
